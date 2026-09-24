@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة القروض والتمويل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>حاسبة القروض الشاملة</h2>
+        
+        <div class="input-group">
+            <label for="amount">مبلغ التمويل (ريال):</label>
+            <input type="number" id="amount" placeholder="مثال: 100000">
+        </div>
+
+        <div class="input-group">
+            <label for="interest">نسبة الفائدة السنوية (%):</label>
+            <input type="number" id="interest" step="0.1" placeholder="مثال: 5">
+        </div>
+
+        <div class="input-group">
+            <label for="years">مدة التمويل (بالسنوات):</label>
+            <input type="number" id="years" placeholder="مثال: 5">
+        </div>
+
+        <button onclick="calculateLoan()">احسب القسط</button>
+
+        <div class="results" id="results">
+            <div class="result-box">
+                <span>القسط الشهري:</span>
+                <strong id="monthly-payment">0.00</strong> ريال
+            </div>
+            <div class="result-box">
+                <span>إجمالي المبلغ المسدد:</span>
+                <strong id="total-payment">0.00</strong> ريال
+            </div>
+            <div class="result-box">
+                <span>إجمالي الفوائد:</span>
+                <strong id="total-interest">0.00</strong> ريال
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
