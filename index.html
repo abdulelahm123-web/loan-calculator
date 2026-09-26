@@ -1,46 +1,48 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة القروض والتمويل</title>
-    <meta name="google-site-verification" content="Yto5sOaObF50-2h4P_wjPMg9A4NYsHEzUbN-hFlqnqU" />
+    <title>حاسبة أقساط القروض والتمويل</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator-container">
-        <h2>حاسبة القروض الشاملة</h2>
-        
-        <div class="input-group">
-            <label for="amount">مبلغ التمويل (ريال):</label>
-            <input type="number" id="amount" placeholder="مثال: 100000">
+
+    <div class="calculator-card">
+        <div class="header">
+            <h2>حاسبة أقساط القروض والتمويل</h2>
+            <p class="subtitle">تعديل معطيات التمويل</p>
         </div>
 
-        <div class="input-group">
-            <label for="interest">نسبة الفائدة السنوية (%):</label>
-            <input type="number" id="interest" step="0.1" placeholder="مثال: 5">
+        <div class="form-group">
+            <label for="loanAmount">مبلغ القرض الأساسي (ر.س)</label>
+            <input type="number" id="loanAmount" value="100000" min="1000" step="1000" oninput="calculateLoan()">
         </div>
 
-        <div class="input-group">
-            <label for="years">مدة التمويل (بالسنوات):</label>
-            <input type="number" id="years" placeholder="مثال: 5">
+        <div class="form-group">
+            <label for="monthlyPayment">القسط الشهري المقترح (ر.س)</label>
+            <input type="number" id="monthlyPayment" value="2000" min="100" step="100" oninput="calculateLoan()">
         </div>
 
-        <button onclick="calculateLoan()">احسب القسط</button>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="interestRate">نسبة المرابحة/الفائدة السنوية (%)</label>
+                <input type="number" id="interestRate" value="5" min="0" max="30" step="0.1" oninput="calculateLoan()">
+            </div>
 
-        <div class="results" id="results">
-            <div class="result-box">
-                <span>القسط الشهري:</span>
-                <strong id="monthly-payment">0.00</strong> ريال
+            <div class="form-group">
+                <label for="loanTerm">مدة التمويل (بالسنوات)</label>
+                <input type="number" id="loanTerm" value="5" min="1" max="30" oninput="calculateLoan()">
             </div>
-            <div class="result-box">
-                <span>إجمالي المبلغ المسدد:</span>
-                <strong id="total-payment">0.00</strong> ريال
-            </div>
-            <div class="result-box">
-                <span>إجمالي الفوائد:</span>
-                <strong id="total-interest">0.00</strong> ريال
-            </div>
+        </div>
+
+        <div class="result-box">
+            <span class="result-label">رصيد القرض المتبقي</span>
+            <span class="result-value" id="remainingBalance">0 ر.س</span>
+        </div>
+
+        <div class="footer-note">
+            * تعتمد الحاسبة على طريقة الجدول الزمني لإطفاء القرض والأقساط المتساوية.
         </div>
     </div>
 
